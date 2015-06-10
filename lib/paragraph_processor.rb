@@ -5,4 +5,8 @@ class ParagraphProcessor
     string.insert(-1, '</p>')
   end
 
+  def type
+    'paragraph'
+  end
+
 end

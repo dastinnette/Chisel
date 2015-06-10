@@ -1,8 +1,5 @@
 gem 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/header_processor'
-require 'pry'
+require_relative '../lib/header_processor'
 
 class ChunkSorterTest < Minitest::Test
 

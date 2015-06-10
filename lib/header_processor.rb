@@ -7,6 +7,9 @@ class HeaderProcessor
     string.delete("#")
   end
 
+  def type
+    'header'
+  end
 end
 
 # need to add h2, etc depending on the number of preceding hashes

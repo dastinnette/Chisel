@@ -15,9 +15,11 @@ class Chisel
 end
 
 
-input_file  = ARGV[0]
-output_file = ARGV[1]
+if __FILE__ == $PROGRAM_NAME
+  input_file  = ARGV[0]
+  output_file = ARGV[1]
 
-markdown    = File.read(input_file)
-html        = Chisel.new(markdown).to_html
-File.write(output_file, html)
+  markdown    = File.read(input_file)
+  html        = Chisel.new(markdown).to_html
+  File.write(output_file, html)
+end
