@@ -1,4 +1,4 @@
-require_relative 'chunk_sorter'
+require_relative 'chunk_formatter'
 require_relative 'chunk_maker'
 
 class Chisel
@@ -7,9 +7,8 @@ class Chisel
   end
 
   def to_html
-    chunks = ChunkMaker.new(@markdown).chunk
-    chunk_formatters = chunks.map { |chunk| ChunkSorter.new(chunk).sort }
-    html_chunks = chunk_formatters.zip(chunks).map { |cf, chunk| cf.format(chunk) }
+    chunks      = ChunkMaker.new(@markdown).chunk
+    html_chunks = chunks.map { |chunk| ChunkFormatter.new(chunk).format }
     html_chunks.join("\n\n")
   end
 end

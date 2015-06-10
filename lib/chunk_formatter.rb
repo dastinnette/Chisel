@@ -1,16 +1,20 @@
 require_relative 'header_processor'
 require_relative 'paragraph_processor'
 
-class ChunkSorter
+class ChunkFormatter
   attr_reader :string, :paragraph_processor, :header_processor
 
-  def initialize(string)
-    @string = string
+  def initialize(chunk)
+    @string              = chunk
     @paragraph_processor = ParagraphProcessor.new
-    @header_processor = HeaderProcessor.new
+    @header_processor    = HeaderProcessor.new
   end
 
-  def sort
+  def format
+    processor.format(@string)
+  end
+
+  def processor
     if string[0] == "#"
       return @header_processor
     else
