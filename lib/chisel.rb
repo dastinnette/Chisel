@@ -1,27 +1,16 @@
-require_relative 'renderer'
-require_relative 'header_processor'
-require_relative 'paragraph_processor'
+require_relative 'chunk_sorter'
+require_relative 'chunk_maker'
 
 class Chisel
-
   def initialize(markdown)
     @markdown = markdown
   end
 
   def to_html
-    # @markdown
-    #   "# My Life\n\nYou just *have* to try the cheesecake"
-
-    chunks = # send @markdown to the chunk maker
-      ["# My Life", "You just *have* to try the cheesecake"]
-
-    chunk_formatters = # send the chunks to the chunk formatters
-      [HeaderProcessor.new, ParagraphProcessor.new]
-
+    chunks = ChunkMaker.new(@markdown).chunk
+    chunk_formatters = chunks.map { |chunk| ChunkSorter.new(chunk).sort }
     html_chunks = chunk_formatters.zip(chunks).map { |cf, chunk| cf.format(chunk) }
-      # ["<h1>My Life</h1>", "<p>You just *have* to try the cheesecake</p>"]
-
-    html_chunks.join
+    html_chunks.join("\n\n")
   end
 end
 

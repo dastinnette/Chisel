@@ -1,5 +1,5 @@
-require_relative './lib/header_processor'
-require_relative './lib/paragraph_processor'
+require_relative 'header_processor'
+require_relative 'paragraph_processor'
 
 class ChunkSorter
   attr_reader :string, :paragraph_processor, :header_processor
@@ -12,11 +12,9 @@ class ChunkSorter
 
   def sort
     if string[0] == "#"
-      @header_processor.format(string)
-      return "header"
+      return @header_processor
     else
-      @paragraph_processor.format(string)
-      return "paragraph"
+      return @paragraph_processor
     end
   end
 
