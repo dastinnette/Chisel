@@ -1,6 +1,7 @@
 require './lib/header_processor'
 require './lib/paragraph_processor'
 require './lib/list_formatter'
+require './lib/order_list_processor'
 
 class ChunkFormatter
   attr_reader :string, :paragraph_processor, :header_processor
@@ -10,6 +11,7 @@ class ChunkFormatter
     @paragraph_processor = ParagraphProcessor.new
     @list_processor      = ListFormatter.new
     @header_processor    = HeaderProcessor.new
+    @order_list_processor= OrderListProcessor.new
   end
 
   def format
@@ -21,10 +23,16 @@ class ChunkFormatter
       return @header_processor
     elsif string[0] == "*"
       return @list_processor
+    elsif array_method.include?(string[0])
+      return @order_list_processor
     else
       return @paragraph_processor
 
     end
+  end
+
+  def array_method
+    ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
   end
 
 end

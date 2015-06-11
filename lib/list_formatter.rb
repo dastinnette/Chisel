@@ -1,4 +1,3 @@
-#"<p>* Sushi" => "<li>Sushi</li>"
 
 class ListFormatter
 
