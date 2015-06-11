@@ -1,5 +1,6 @@
-require_relative 'chunk_formatter'
-require_relative 'chunk_maker'
+require './lib/chunk_formatter'
+require './lib/chunk_maker'
+require './lib/formatting'
 
 class Chisel
   def initialize(markdown)
@@ -8,7 +9,10 @@ class Chisel
 
   def to_html
     chunks      = ChunkMaker.new(@markdown).chunk
-    html_chunks = chunks.map { |chunk| ChunkFormatter.new(chunk).format }
+    html_chunks = chunks.map do |chunk|
+      ChunkFormatter.new(chunk).format
+      Formatting.new.alter_all(chunk)
+    end
     html_chunks.join("\n\n")
   end
 end

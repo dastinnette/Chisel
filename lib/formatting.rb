@@ -1,15 +1,22 @@
 class Formatting
 
-  def alter(string)
-    string.insert(0, "<em>")
-    string.insert(-1, "</em>")
-    string.delete("*")
+  def alter_strong(string)
+    string.sub!("**", "<strong>")
+    string.sub!("**", "</strong>")
   end
 
-  def alter2(string)
-    string.insert(0, "<strong>")
-    string.insert(-1, "</strong>")
-    string.delete("*")
+  def alter_em(string)
+    string.sub!("*", "<em>")
+    string.sub!("*", "</em>")
+  end
+
+  def alter_all(string)
+    while string.include? "*"
+    alter_strong(string)
+    alter_em(string)
+    end
+    string
   end
 
 end
+
