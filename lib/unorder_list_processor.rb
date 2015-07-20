@@ -1,12 +1,11 @@
+class UnorderListProcessor
 
-class ListFormatter
-
-  def format_high(string)
+  def ul_block_to_html(string)
     string.insert(0, "<ul>\n")
     string.insert(-1, "\n</ul>")
   end
 
-  def format_low(string)
+  def ul_line_to_html(string)
     string.insert(0, '<li>')
     string.insert(-1, '</li>')
   end
@@ -15,10 +14,9 @@ class ListFormatter
     lines = string.split("\n")
     lines.map do |line|
       line.delete!(line[0])
-      format_low(line)
+      ul_line_to_html(line)
     end
-    formatted_lines = lines.join("\n")
-    format_high(formatted_lines)
+    html_lines = lines.join("\n")
+    ul_block_to_html(html_lines)
   end
-
 end

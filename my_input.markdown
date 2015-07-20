@@ -11,8 +11,8 @@ My favorite cuisines are:
 * Barbeque
 * Mexican
 
-My favorite cuisines are:
+My favorite sports are:
 
-1. Sushi
-2. Barbeque
-3. Mexican
+1. Baseball
+2. Football
+3. Basketball
