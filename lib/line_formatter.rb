@@ -1,8 +1,10 @@
 class LineFormatter
 
   def double_star_to_html(string)
+    while string.include? "**"
     string.sub!("**", "<strong>")
     string.sub!("**", "</strong>")
+    end
   end
 
   def star_to_html(string)

@@ -20,7 +20,7 @@ class LineFormatterTest < Minitest::Test
   def test_adds_strong_to_string_with_2star
     string = " **Hello** "
     format = LineFormatter.new
-    assert_equal " <strong>Hello</strong> ", format.double_star_to_html(string)
+    assert_equal " <strong>Hello</strong> ", format.formatting_to_html(string)
   end
 
   def test_formats_sentence_properly_with_nested_stars
