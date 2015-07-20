@@ -1,22 +1,20 @@
-class Formatting
+class Formatter
 
-  def alter_strong(string)
+  def double_star_to_html(string)
     string.sub!("**", "<strong>")
     string.sub!("**", "</strong>")
   end
 
-  def alter_em(string)
+  def star_to_html(string)
     string.sub!("*", "<em>")
     string.sub!("*", "</em>")
   end
 
-  def alter_all(string)
+  def formatting_to_html(string)
     while string.include? "*"
-    alter_strong(string)
-    alter_em(string)
+    double_star_to_html(string)
+    star_to_html(string)
     end
     string
   end
-
 end
-

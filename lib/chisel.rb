@@ -1,6 +1,6 @@
 require './lib/chunk_formatter'
 require './lib/chunk_maker'
-require './lib/formatting'
+require './lib/formatter'
 
 class Chisel
   def initialize(markdown)
@@ -11,7 +11,7 @@ class Chisel
     chunks      = ChunkMaker.new(@markdown).chunk
     html_chunks = chunks.map do |chunk|
       formatted = ChunkFormatter.new(chunk).format
-      Formatting.new.alter_all(formatted)
+      Formatter.new.formatting_to_html(formatted)
     end
     html_chunks.join("\n\n")
   end
