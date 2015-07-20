@@ -17,7 +17,7 @@ class UnorderListProcessorTest < Minitest::Test
     assert_equal "<ul>\n<li> Sushi</li>\n</ul>", ul_list_processor.format(string)
   end
 
-  def test_unordered_list_output
+  def test_unordered_list_output_to_html
     string            = "*Sushi\n*Barbeque\n*Mexican"
     ul_list_processor = UnorderListProcessor.new
     assert_equal "<ul>\n<li>Sushi</li>\n<li>Barbeque</li>\n<li>Mexican</li>\n</ul>", ul_list_processor.format(string)
