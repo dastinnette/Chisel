@@ -1,7 +1,6 @@
-gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/chisel'
+require './lib/chisel'
 
 class ChiselTest < Minitest::Test
   def test_chisel_converts_markdown_to_html

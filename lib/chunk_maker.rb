@@ -8,5 +8,4 @@ class ChunkMaker
   def chunk
     doc.split("\n\n")
   end
-
 end

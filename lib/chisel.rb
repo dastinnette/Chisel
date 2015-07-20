@@ -17,7 +17,7 @@ class Chisel
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
+if __FILE__   == $PROGRAM_NAME
   input_file  = ARGV[0]
   output_file = ARGV[1]
 

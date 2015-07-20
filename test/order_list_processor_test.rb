@@ -1,7 +1,6 @@
 require './lib/order_list_processor'
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 
 class OrderListProcessorTest < Minitest::Test
 

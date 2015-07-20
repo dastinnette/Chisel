@@ -23,14 +23,14 @@ class ChunkFormatter
       return @header_processor
     elsif string[0] == "*"
       return @unorder_list_processor
-    elsif array_method.include?(string[0])
+    elsif leading_numbers.include?(string[0])
       return @order_list_processor
     else
       return @paragraph_processor
     end
   end
 
-  def array_method
+  def leading_numbers
     ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
   end
 end
