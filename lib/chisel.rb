@@ -1,6 +1,6 @@
 require './lib/chunk_formatter'
 require './lib/chunk_maker'
-require './lib/formatter'
+require './lib/line_formatter'
 
 class Chisel
   def initialize(markdown)
@@ -11,12 +11,11 @@ class Chisel
     chunks      = ChunkMaker.new(@markdown).chunk
     html_chunks = chunks.map do |chunk|
       formatted = ChunkFormatter.new(chunk).format
-      Formatter.new.formatting_to_html(formatted)
+      LineFormatter.new.formatting_to_html(formatted)
     end
     html_chunks.join("\n\n")
   end
 end
-
 
 if __FILE__ == $PROGRAM_NAME
   input_file  = ARGV[0]

@@ -16,3 +16,4 @@ My favorite sports are:
 1. Baseball
 2. Football
 3. Basketball
+4. Squash

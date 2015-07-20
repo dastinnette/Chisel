@@ -1,4 +1,4 @@
-class Formatter
+class LineFormatter
 
   def double_star_to_html(string)
     string.sub!("**", "<strong>")
