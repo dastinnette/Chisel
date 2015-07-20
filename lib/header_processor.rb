@@ -11,6 +11,3 @@ class HeaderProcessor
     'header'
   end
 end
-
-# need to add h2, etc depending on the number of preceding hashes
-# need to delete all hashes once format complete
